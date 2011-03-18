@@ -1,0 +1,64 @@
+[1. March] w/ Carlos
+
+Image uploading is currently done through ADragonFly/.../cloud/functions/UploadImage
+Starting Eucalyptus instance is done ADragonFly/eucalyptus/services/EucalyptusComputeService
+
+What needs to be done:
+	Create a servlet (JobManager) that takes input: ActionID, JobDescription, Data(optional)
+	and uses UploadImage / Starting instance functions
+	
+	This servlet should also store ActionID and the time it took to perform the job.
+	When the job has been completed, JobManager sends a notification to the device that
+	started this job. After receiving notification, the device sends it's timing data to JobManager
+	
+	JobDescription == "SendTimeDetails"
+	
+	JobDescription
+	{
+		jobClass : "SimpleJob",
+		jobDescription: "Job that does nothing for 5 seconds. Pretty simple uh?",
+		jobOwnerDevice: "iphone",
+		jobIdentifier : "d41d8cd98f00b204e9800998ecf8427e",
+	}
+
+iPhone token: 5324075b4c07afa9e2dbe15b74dbda2227a74d5537f0d4af24cc0aecda697f1c
+
+Sample request:
+JobManager?jobClass=CalculateSumJob&jobDescription=
+{
+	"description" : "Job that calculates sum of variable number of integers",
+	"ownerDevice" : "iphone",
+	"deviceID" : "5324075b4c07afa9e2dbe15b74dbda2227a74d5537f0d4af24cc0aecda697f1c",
+	"taskID" : "d41d8cd98f00b204e9800998ecf8427e",
+	"parameters" : [1, 2, 3, 4, 5]
+}
+
+JobManager?jobclass=CalculateSumJob&jobDescription={
+"description":"S"
+}
+JobManager?jobClass=UploadPictureJob&data=""&jobDescription=
+{
+	"description" : "Job that calculates sum of variable number of integers",
+	"ownerDevice" : "iphone",
+	"deviceID" : "5324075b4c07afa9e2dbe15b74dbda2227a74d5537f0d4af24cc0aecda697f1c",
+	"jobID" : "d41d8cd98f00b204e9800998ecf8427e",
+	"parameters" : [1, 2, 3, 4, 5]
+}
+
+NB: if binary data has to be sent it should be put into multipart request. Parameters should be used fro primitive values
+
+========================
+Write servlet to start an instance on EC2
+Also a job to upload a picture to bucket
+Integrate some SQL driver and implement storing jobID-s w/ timing & results data on server
+Iphone specific tasks to do starting EC2 instance and uploading data to a bucket on iPhone
+Request results for a task from server (PushNotification should not contain data about job results, just the jobID that has been completed)
+
+========================
+07.03.2011
+When client app requests status from server (or at any time that server provides a response) it should
+contain following info about the job:
+taskID = (MD5 used to identify the job)
+status = ____
+Status should be one of the following values
+new, queued, running, paused, error, completed

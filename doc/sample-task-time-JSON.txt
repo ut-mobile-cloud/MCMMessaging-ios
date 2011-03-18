@@ -1,0 +1,14 @@
+1) Get all times
+/TaskTimesManager?action=getAllTimes&taskID=d41d8cd98f00b204e9800998ecf8427e
+
+
+2) Add / modify times for task
+/TaskTimesManager?action=UpdateTimes&taskID=d41d8cd98f00b204e9800998ecf8427e&taskTimes=
+{
+	"taskID" : "d41d8cd98f00b204e9800998ecf8427e",
+	"runningTime" : 0.4,
+	"initiationTime" : 1.1,
+	"notificationDelivery" : 2.2,
+	"results" : 3.3
+}
+

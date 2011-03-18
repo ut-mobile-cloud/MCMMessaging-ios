@@ -1,0 +1,22 @@
+21.02.2011
+	The iPhone app should have about 3 different tasks that demonstrate middleware-phone asynchronous messaging capabilities.
+	I thought of:
+		1) Starting a download/calculation/upload job and receiving notification when it's done. This would demonstrate the 1to1 messaging.
+		2) Client app requests info about other clients(for example their location or a picture to be taken and uploaded <-- would be useful in social events) from the middleware. Middleware send's requests out to all clients, when clients upload the requested info, original client will be notified and he can then get the info he initially requested (since it's now on cloud)
+
+	Measurements to be made:
+	1) the time it takes to upload a file using middleware vs the time it takes to upload individually to each provider [MAIN]
+	2) round trip time between requesting a notification to be sent out and receiving it
+	3) 
+
+Questions:
+	What will trigger the notifications?
+	Does user select a picture and upload it for example?
+	How much automation should there be?
+	
+	Which interfaces should the service have?
+	What info do the Android phones have to give to service for the service to be able to message them back?
+	(iPhone needs to register device once, future notifications will be sent using this token) Should we make it possible to trigger the notification of all registered devices from one phone?
+Server side stuff:
+
+ut.mobilelab.apple@gmail.com

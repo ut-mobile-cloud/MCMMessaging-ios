@@ -1,0 +1,15 @@
+The basic entities in messaging system would be Client and Message
+
+Client - encapsulates data necessary to identify mobile device running our messaging application
+
+Message - encapsulates the information to be sent to a device. Can have convenience methods to verify and compose the message.
+
+When the application is being run on the phone for the first time, it will need to register itself. This should be done at registerClientForMessaging applet. Applet would need 
+1) device type (iPhone/Android)
+2) some unique ID specific to a messaging service that the device is able to use. Correct Client object would then be instantiated and stored for later use.
+
+
+MessageSender would be an interface which the device / messaging service specific classes have to implement
+it has required method: .send(Client client, Message message)
+
+MessagingManager would be a singleton that held all available MessageSender implementation instances. When it's method .sendMessage is called, it would choose correct MessageSender and use it to send the message.

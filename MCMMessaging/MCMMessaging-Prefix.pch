@@ -1,0 +1,23 @@
+//
+// Prefix header for all source files of the 'MCMMessaging' target in the 'MCMMessaging' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+#endif
+
+#ifdef DEBUG
+#define DLog(args...) _DebugLog(NO,__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
+#define DDLog(args...) _DebugLog(YES,__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
+#else
+#define DLog(args...);
+#define DDLog(args...);
+#endif
+void _DebugLog(BOOL detailedOutput, const char *file, int lineNumber, const char *funcName, NSString *format,...);

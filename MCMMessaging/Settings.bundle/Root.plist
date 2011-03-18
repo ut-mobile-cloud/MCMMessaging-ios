@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Server data</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Key</key>
+			<string>serverURL</string>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>Title</key>
+			<string>Server host/IP</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>Key</key>
+			<string>serverPort</string>
+			<key>KeyboardType</key>
+			<string>NumbersAndPunctuation</string>
+			<key>Title</key>
+			<string>Server port</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Device data</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Device token</string>
+			<key>Key</key>
+			<string>deviceToken</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Networks to try</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>FalseValue</key>
+			<string>NO</string>
+			<key>Key</key>
+			<string>network3G</string>
+			<key>Title</key>
+			<string>3G</string>
+			<key>TrueValue</key>
+			<string>YES</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>FalseValue</key>
+			<string>NO</string>
+			<key>Key</key>
+			<string>networkEDGE</string>
+			<key>Title</key>
+			<string>Edge</string>
+			<key>TrueValue</key>
+			<string>YES</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>FalseValue</key>
+			<string>NO</string>
+			<key>Key</key>
+			<string>networkWiFi</string>
+			<key>Title</key>
+			<string>WiFi</string>
+			<key>TrueValue</key>
+			<string>YES</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string></string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0.1</string>
+			<key>Key</key>
+			<string>appVersion</string>
+			<key>Title</key>
+			<string>VERSION</string>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
