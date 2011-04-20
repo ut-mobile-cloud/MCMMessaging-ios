@@ -103,8 +103,8 @@ NSString *MCReceivedResultsNotification = @"MCReceivedResultsNotification";
  */
 - (void)receivedNotificationWithUserInfo: (NSDictionary *)userInfo
 {
-	DLog(@"Received a notification");
 	NSString *taskID = [userInfo objectForKey:@"taskID"];
+	DLog(@"Received a notification : taskID == %@", taskID);
 	NSURL *resultsURL = [[MCAppSettings sharedSettings] urlWithServletName:@"RequestResults"];
 	ASIFormDataRequest *resultsRequest = [ASIFormDataRequest requestWithURL:resultsURL];
 	[resultsRequest addPostValue:taskID forKey:@"taskID"];

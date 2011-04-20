@@ -51,6 +51,8 @@ static NSString *MCRemoteNotificationRegistrationDeviceToken = @"DeviceTokenRegi
 
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+	DLog(@"%@", deviceToken);
+	
 	[[MCNotificationManager sharedManager] appDidRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 	[[MCNotificationManager sharedManager] registerTokenAtProvider:deviceToken];
 }

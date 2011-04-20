@@ -63,7 +63,6 @@
 		255E25CE131D995D00F2281A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 255E25CD131D995D00F2281A /* libz.dylib */; };
 		255E25D1131D99F300F2281A /* MCNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 255E25D0131D99F300F2281A /* MCNotificationManager.m */; };
 		255E25D4131DAC2E00F2281A /* NSData+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 255E25D3131DAC2D00F2281A /* NSData+Additions.m */; };
-		255E788A131E929E007518D6 /* libMD5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 255E7889131E929E007518D6 /* libMD5.a */; };
 		257A5A17132786E3005438D7 /* MCAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A5A16132786E3005438D7 /* MCAppSettings.m */; };
 		257A5A1B1327B5F6005438D7 /* MCTaskTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A5A1A1327B5EC005438D7 /* MCTaskTimes.m */; };
 		257A5A1E1327B968005438D7 /* MCTimesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A5A1D1327B968005438D7 /* MCTimesController.m */; };
@@ -195,7 +194,6 @@
 		255E25D0131D99F300F2281A /* MCNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCNotificationManager.m; sourceTree = "<group>"; };
 		255E25D2131DAC2D00F2281A /* NSData+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Additions.h"; sourceTree = "<group>"; };
 		255E25D3131DAC2D00F2281A /* NSData+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Additions.m"; sourceTree = "<group>"; };
-		255E7889131E929E007518D6 /* libMD5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMD5.a; path = MCMMessaging/External/MD5/libMD5.a; sourceTree = "<group>"; };
 		255E788B131E92B4007518D6 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = md5.h; path = MD5/md5.h; sourceTree = "<group>"; };
 		257A5A15132786E3005438D7 /* MCAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAppSettings.h; sourceTree = "<group>"; };
 		257A5A16132786E3005438D7 /* MCAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAppSettings.m; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D263E61320F97000F4FD68 /* AssetsLibrary.framework in Frameworks */,
-				255E788A131E929E007518D6 /* libMD5.a in Frameworks */,
 				255E25CE131D995D00F2281A /* libz.dylib in Frameworks */,
 				255E25CC131D98C000F2281A /* MobileCoreServices.framework in Frameworks */,
 				255E25CA131D98B600F2281A /* SystemConfiguration.framework in Frameworks */,
@@ -306,7 +303,6 @@
 		250306E3130E7FD4003D0727 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				255E7889131E929E007518D6 /* libMD5.a */,
 				25F15C34131E8FE0006991C7 /* CoreFoundation.framework */,
 				255E25CD131D995D00F2281A /* libz.dylib */,
 				255E25CB131D98C000F2281A /* MobileCoreServices.framework */,
@@ -809,6 +805,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "/Volumes/data/madis/UT/4-2011-K/Bakalaureusetöö/MobileCloud/GIT/MCMMessaging-ios/MCMMessaging/External/MD5";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCMMessaging/MCMMessaging-Prefix.pch";
@@ -816,8 +813,9 @@
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/MCMMessaging/External/MD5\"",
+					MCMMessaging/External/MD5,
 				);
+				OTHER_LDFLAGS = "-lMD5";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(PROJ_HOME)/External/CocoaWithLove/**";
 				WRAPPER_EXTENSION = app;
@@ -829,14 +827,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Volumes/data/madis/UT/4-2011-K/Bakalaureusetöö/MobileCloud/GIT/MCMMessaging-ios/MCMMessaging/External/MD5";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCMMessaging/MCMMessaging-Prefix.pch";
 				INFOPLIST_FILE = "MCMMessaging/MCMMessaging-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/MCMMessaging/External/MD5\"",
+					MCMMessaging/External/MD5,
 				);
+				OTHER_LDFLAGS = "-lMD5";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(PROJ_HOME)/External/CocoaWithLove/**";
 				VALIDATE_PRODUCT = YES;

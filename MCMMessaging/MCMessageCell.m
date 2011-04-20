@@ -23,6 +23,11 @@
 	self.messageLabel.text = (NSString *)dataObject;
 }
 
+- (void)handleSelectionInTableView:(UITableView *)aTableView
+{
+	DLog(@"%@", self.messageLabel.text);
+}
+
 - (void)dealloc {
 	[messageLabel release];
 	[super dealloc];

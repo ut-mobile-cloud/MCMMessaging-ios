@@ -59,6 +59,7 @@
 		newTimes.initiationTime = initDuration;
 		[MCTaskTimes sendTimesToServer:newTimes];
 		[newTimes release];
+		
 	} else {
 		DLog(@"error : %@", error);
 	}
