@@ -31,4 +31,14 @@
 	return hexBytes;
 }
 
++ (NSData *)randomDataOfSize:(int)size
+{
+	NSMutableData *data = [NSMutableData dataWithCapacity:size];
+	for (int i = 0; i < size/4; i++) {
+		u_int32_t randomBits = arc4random();
+		[data appendBytes:(void *)&randomBits length:sizeof(randomBits)];
+	}
+	return data;
+}
+
 @end

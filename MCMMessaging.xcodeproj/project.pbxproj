@@ -98,8 +98,13 @@
 		25BCA4E21312910C00A9AE96 /* InAppSettingsReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BCA4D41312910C00A9AE96 /* InAppSettingsReader.m */; };
 		25BCA4E31312910C00A9AE96 /* InAppSettingsSpecifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BCA4D61312910C00A9AE96 /* InAppSettingsSpecifier.m */; };
 		25BCA4E61312912D00A9AE96 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25BCA4E51312912C00A9AE96 /* Settings.bundle */; };
+		25C9FB6A136585E500F9D7D6 /* MCDirectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C9FB69136585E500F9D7D6 /* MCDirectTests.m */; };
+		25C9FB6E1365860600F9D7D6 /* MCSynchronousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C9FB6D1365860600F9D7D6 /* MCSynchronousTests.m */; };
+		25C9FB711365861800F9D7D6 /* MCAsynchronousTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C9FB701365861800F9D7D6 /* MCAsynchronousTests.m */; };
+		25C9FB921365AD0D00F9D7D6 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C9FB911365AD0D00F9D7D6 /* AWSiOSSDK.framework */; };
 		25D263E61320F97000F4FD68 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D263E51320F97000F4FD68 /* AssetsLibrary.framework */; };
 		25D6C9111326796C003F9957 /* MCStartEucaInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D6C9101326796B003F9957 /* MCStartEucaInstance.m */; };
+		25EE1BA813683C930056B694 /* MCTimeSynchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EE1BA713683C930056B694 /* MCTimeSynchronizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,9 +259,18 @@
 		25BCA4D51312910C00A9AE96 /* InAppSettingsSpecifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsSpecifier.h; sourceTree = "<group>"; };
 		25BCA4D61312910C00A9AE96 /* InAppSettingsSpecifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppSettingsSpecifier.m; sourceTree = "<group>"; };
 		25BCA4E51312912C00A9AE96 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		25C9FB68136585E500F9D7D6 /* MCDirectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCDirectTests.h; sourceTree = "<group>"; };
+		25C9FB69136585E500F9D7D6 /* MCDirectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCDirectTests.m; sourceTree = "<group>"; };
+		25C9FB6C1365860600F9D7D6 /* MCSynchronousTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSynchronousTests.h; sourceTree = "<group>"; };
+		25C9FB6D1365860600F9D7D6 /* MCSynchronousTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSynchronousTests.m; sourceTree = "<group>"; };
+		25C9FB6F1365861800F9D7D6 /* MCAsynchronousTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAsynchronousTests.h; sourceTree = "<group>"; };
+		25C9FB701365861800F9D7D6 /* MCAsynchronousTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAsynchronousTests.m; sourceTree = "<group>"; };
+		25C9FB911365AD0D00F9D7D6 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = MCMMessaging/External/Amazon/AWSiOSSDK.framework; sourceTree = "<group>"; };
 		25D263E51320F97000F4FD68 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		25D6C90F1326796B003F9957 /* MCStartEucaInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCStartEucaInstance.h; sourceTree = "<group>"; };
 		25D6C9101326796B003F9957 /* MCStartEucaInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCStartEucaInstance.m; sourceTree = "<group>"; };
+		25EE1BA613683C930056B694 /* MCTimeSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTimeSynchronizer.h; sourceTree = "<group>"; };
+		25EE1BA713683C930056B694 /* MCTimeSynchronizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTimeSynchronizer.m; sourceTree = "<group>"; };
 		25F15C34131E8FE0006991C7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -265,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25C9FB921365AD0D00F9D7D6 /* AWSiOSSDK.framework in Frameworks */,
 				25D263E61320F97000F4FD68 /* AssetsLibrary.framework in Frameworks */,
 				255E25CE131D995D00F2281A /* libz.dylib in Frameworks */,
 				255E25CC131D98C000F2281A /* MobileCoreServices.framework in Frameworks */,
@@ -283,7 +298,6 @@
 		250306D5130E7FD4003D0727 = {
 			isa = PBXGroup;
 			children = (
-				25D263E51320F97000F4FD68 /* AssetsLibrary.framework */,
 				25BCA489131284BC00A9AE96 /* External */,
 				253018BB1312732600D137E6 /* Images */,
 				250306EA130E7FD4003D0727 /* MCMMessaging */,
@@ -303,6 +317,8 @@
 		250306E3130E7FD4003D0727 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25C9FB911365AD0D00F9D7D6 /* AWSiOSSDK.framework */,
+				25D263E51320F97000F4FD68 /* AssetsLibrary.framework */,
 				25F15C34131E8FE0006991C7 /* CoreFoundation.framework */,
 				255E25CD131D995D00F2281A /* libz.dylib */,
 				255E25CB131D98C000F2281A /* MobileCoreServices.framework */,
@@ -334,6 +350,8 @@
 				257A5A16132786E3005438D7 /* MCAppSettings.m */,
 				257A5A191327B5E7005438D7 /* MCTaskTimes.h */,
 				257A5A1A1327B5EC005438D7 /* MCTaskTimes.m */,
+				25EE1BA613683C930056B694 /* MCTimeSynchronizer.h */,
+				25EE1BA713683C930056B694 /* MCTimeSynchronizer.m */,
 			);
 			path = MCMMessaging;
 			sourceTree = "<group>";
@@ -424,6 +442,12 @@
 				255700B5131E557F0000D067 /* MCTask.m */,
 				25D6C90F1326796B003F9957 /* MCStartEucaInstance.h */,
 				25D6C9101326796B003F9957 /* MCStartEucaInstance.m */,
+				25C9FB68136585E500F9D7D6 /* MCDirectTests.h */,
+				25C9FB69136585E500F9D7D6 /* MCDirectTests.m */,
+				25C9FB6C1365860600F9D7D6 /* MCSynchronousTests.h */,
+				25C9FB6D1365860600F9D7D6 /* MCSynchronousTests.m */,
+				25C9FB6F1365861800F9D7D6 /* MCAsynchronousTests.h */,
+				25C9FB701365861800F9D7D6 /* MCAsynchronousTests.m */,
 			);
 			name = Tasks;
 			sourceTree = "<group>";
@@ -739,6 +763,10 @@
 				257A5A1B1327B5F6005438D7 /* MCTaskTimes.m in Sources */,
 				257A5A1E1327B968005438D7 /* MCTimesController.m in Sources */,
 				252A18CE132B97B9009E8A30 /* MCTaskTimesCell.m in Sources */,
+				25C9FB6A136585E500F9D7D6 /* MCDirectTests.m in Sources */,
+				25C9FB6E1365860600F9D7D6 /* MCSynchronousTests.m in Sources */,
+				25C9FB711365861800F9D7D6 /* MCAsynchronousTests.m in Sources */,
+				25EE1BA813683C930056B694 /* MCTimeSynchronizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,7 +833,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "/Volumes/data/madis/UT/4-2011-K/Bakalaureusetöö/MobileCloud/GIT/MCMMessaging-ios/MCMMessaging/External/MD5";
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Volumes/data/madis/UT/4-2011-K/Bakalaureusetöö/MobileCloud/GIT/MCMMessaging-ios/MCMMessaging/External/MD5",
+					"\"$(SRCROOT)/MCMMessaging/External/Amazon\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCMMessaging/MCMMessaging-Prefix.pch";
@@ -827,7 +858,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "/Volumes/data/madis/UT/4-2011-K/Bakalaureusetöö/MobileCloud/GIT/MCMMessaging-ios/MCMMessaging/External/MD5";
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Volumes/data/madis/UT/4-2011-K/Bakalaureusetöö/MobileCloud/GIT/MCMMessaging-ios/MCMMessaging/External/MD5",
+					"\"$(SRCROOT)/MCMMessaging/External/Amazon\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MCMMessaging/MCMMessaging-Prefix.pch";
 				INFOPLIST_FILE = "MCMMessaging/MCMMessaging-Info.plist";

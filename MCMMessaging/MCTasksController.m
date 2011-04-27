@@ -12,12 +12,27 @@
 #import "MCUploadPictureCell.h"
 #import "MCTask.h"
 #import "MCStartEucaInstance.h"
+#import "MCDirectTests.h"
+#import "MCSynchronousTests.h"
+#import "MCAsynchronousTests.h"
 
 @implementation MCTasksController
 
 - (void)createRows
 {
 	[self addSectionAtIndex:0 withAnimation:UITableViewRowAnimationFade];
+	[self appendRowToSection:0 cellClass:[MCTaskCell class] 
+					cellData:[MCDirectTests new]
+			   withAnimation:UITableViewRowAnimationLeft];
+	[self appendRowToSection:0 cellClass:[MCTaskCell class] 
+					cellData:[MCSynchronousTests new]
+			   withAnimation:UITableViewRowAnimationLeft];
+	[self appendRowToSection:0 cellClass:[MCTaskCell class] 
+					cellData:[MCAsynchronousTests new]
+			   withAnimation:UITableViewRowAnimationLeft];
+
+	
+	[self addSectionAtIndex:1 withAnimation:UITableViewRowAnimationFade];
 	NSArray *addends = [NSArray arrayWithObjects:
 						[NSNumber numberWithInt:1],
 						[NSNumber numberWithInt:2],
@@ -53,11 +68,14 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	if (section == 0) {
+	if (section == 1) {
 		return @"MCM Tasks";
+	} else if (section == 0) {
+		return @"Performance tests";
 	}
 	return nil;
 }
+
 #pragma mark UIViewController
 
 - (void)loadView

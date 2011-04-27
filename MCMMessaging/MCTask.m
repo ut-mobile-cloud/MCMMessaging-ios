@@ -43,10 +43,7 @@ static NSString *MCEmptyServerTaskClassName = @"NoOpTask";
 {
 	self = [super init];
 	if (self) {
-		if (serverClassName == nil) {
-			serverClassName = MCEmptyServerTaskClassName;
-		}
-		serverTaskClassName = [serverClassName retain];
+		serverTaskClassName = serverClassName == nil ? nil : [serverClassName retain];
 		parameters = [[NSMutableArray arrayWithCapacity:0] retain];
 		NSTimeInterval timePart = [[NSDate date] timeIntervalSince1970];
 		NSString *uniqueString = [NSString stringWithFormat:@"%f%@", timePart, [self deviceID]];
@@ -63,6 +60,7 @@ static NSString *MCEmptyServerTaskClassName = @"NoOpTask";
 		NSTimeInterval timePart = [[NSDate date] timeIntervalSince1970];
 		NSString *uniqueString = [NSString stringWithFormat:@"%f%@", timePart, [self deviceID]];
 		taskID = [[uniqueString MD5] retain];
+		serverTaskClassName = nil;
 	}
 	return self;
 }

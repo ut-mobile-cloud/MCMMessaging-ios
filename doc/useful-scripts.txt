@@ -1,0 +1,10 @@
+Creating new static library with specified architecture: 
+
+madis@0026bb0ae9bd:$ gcc -m32 -c md5.c -I . -o md5.o
+madis@0026bb0ae9bd:$ file md5.o 
+md5.o: Mach-O object i386
+madis@0026bb0ae9bd:$ ar rc md5.a md5.o
+madis@0026bb0ae9bd:$ ranlib md5.a
+
+Pack 2 libraries together(universal library for both device and simulator):
+lipo libMD5-device.a -arch i386 libMD5-simulator.a -create -output libMD5.a

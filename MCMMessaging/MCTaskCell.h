@@ -13,9 +13,11 @@
 @interface MCTaskCell : PageCell {
 
 	UILabel *taskNameLabel;
+	UILabel *taskDescriptionLabel;
 	MCTask *task;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *taskNameLabel;
+@property (nonatomic, retain) IBOutlet UILabel *taskDescriptionLabel;
 
 @end

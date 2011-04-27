@@ -12,5 +12,6 @@
 @interface NSData (Additions)
 
 - (NSString *)stringWithHexBytes;
++ (NSData *)randomDataOfSize:(int)size;
 
 @end

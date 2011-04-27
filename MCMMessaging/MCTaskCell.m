@@ -12,6 +12,7 @@
 
 @implementation MCTaskCell
 @synthesize taskNameLabel;
+@synthesize taskDescriptionLabel;
 
 + (NSString *)nibName
 {
@@ -27,9 +28,17 @@
 - (void)configureForData:(id)dataObject tableView:(UITableView *)aTableView indexPath:(NSIndexPath *)anIndexPath
 {
 	[super configureForData:dataObject tableView:aTableView indexPath:anIndexPath];
+	
 	if ([dataObject isKindOfClass:[MCTask class]]) {
 		self->task = (MCTask *)[dataObject retain];
-		self.taskNameLabel.text = task.description;
+		self.taskDescriptionLabel.text = task.description;
+		if ([self->task respondsToSelector:@selector(name)]) {
+			self.taskNameLabel.text = [self->task performSelector:@selector(name)];
+		} else if ([self->task respondsToSelector:@selector(serverTaskClassName)]) {
+			self.taskNameLabel.text = [self->task performSelector:@selector(serverTaskClassName)];
+		} else {
+			self.taskNameLabel.text = @"Task";
+		}
 	} else if ([dataObject isKindOfClass:[NSString class]]) {
 		self.taskNameLabel.text = (NSString *)dataObject;
 	} else {
@@ -39,6 +48,7 @@
 
 - (void)dealloc {
 	[taskNameLabel release];
+	[taskDescriptionLabel release];
 	[super dealloc];
 }
 @end

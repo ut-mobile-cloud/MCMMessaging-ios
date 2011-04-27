@@ -10,9 +10,10 @@
 
 @class MCTask;
 @interface MCTaskRunner : NSObject {
-    
+    NSOperationQueue *localTasks;
 }
 
 + (void)runTask:(MCTask *)task;
-
+- (void)runRemoteTask:(MCTask *)task;
+- (void)runLocalTask:(MCTask *)task;
 @end
