@@ -7,7 +7,7 @@
 //
 
 #import "MCAsynchronousTests.h"
-
+#import "MCTimeSynchronizer.h"
 
 @implementation MCAsynchronousTests
 
@@ -39,6 +39,7 @@
 }
 - (void)main
 {
+	[[MCTimeSynchronizer sharedSynchronizer] startSyncingWithMCM];
 	DLog(@"I'm running i'm running...");
 }
 

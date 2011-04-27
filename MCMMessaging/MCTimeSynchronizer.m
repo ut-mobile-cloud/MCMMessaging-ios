@@ -8,6 +8,7 @@
 
 #import "MCTimeSynchronizer.h"
 #import "ASIFormDataRequest.h"
+#import <dispatch/dispatch.h>
 
 static int MCTimeSynchronizerNumberOfRepetitions = 100;
 
@@ -22,8 +23,25 @@ static int MCTimeSynchronizerNumberOfRepetitions = 100;
 	return instance;
 }
 
+- (void)addTimeDifference:(float)difference
+{
+	DLog(@"Got time difference : %f", difference);
+}
+
 - (void)startSyncingWithMCM
 {
+	void (^SimpleBlock)(int) = ^(int num) {
+		[NSThread sleepForTimeInterval:num];
+	};
+	dispatch_queue_t queue = dispatch_queue_create("ee.ut.cs.ds.mobilecloud.MCM", NULL);
+	dispatch_queue_t main = dispatch_get_main_queue();
+	
+	dispatch_async(queue, ^{
+		SimpleBlock(4);
+		dispatch_async(main, ^{ // Give the results back to caller
+			[self addTimeDifference:0.001];
+		});
+	});
 	
 }
 
