@@ -10,8 +10,13 @@
 #import "ASIFormDataRequest.h"
 #import "MCAppSettings.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MCSyncTestTimes.h"
+#import "NSData+Additions.h"
+#import "JSON.h"
 
-static int TIMES_TO_RUN = 10;
+static int TIMES_TO_RUN = 2;
+static NSString *MCSynchronousTestsServletName = @"SyncTestsServlet";
+static int MCDataSize1MB = 1048576;
 
 @implementation MCSynchronousTests
 
@@ -25,11 +30,29 @@ static int TIMES_TO_RUN = 10;
 	return @"Sync";
 }
 
-- (double)getTaskTimeFromMCM
+/**
+ *	TODO: change(update) the object that is passed into this method. You should not create a new object. I think this way is better. Madis.
+ */
+- (MCSyncTestTimes *)joinTimesWithTimesFromMCM:(MCSyncTestTimes *)times
 {
-	return -1;
+	NSURL *mcmSyncTimesServletURL = [[MCAppSettings sharedSettings] urlWithServletName:@"RequestTestTimesServlet"];
+	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:mcmSyncTimesServletURL];
+	[request addPostValue:@"SyncTests" forKey:@"testType"];
+	[request addPostValue:times.testID forKey:@"testID"];
+	[request addPostValue:[times JSONRepresentation] forKey:@"clientTimes"];
+	[request startSynchronous];
+	MCSyncTestTimes *newTimes = nil;
+	NSError *error = [request error];
+	if (!error && [request responseStatusCode] == 200) {
+		NSString *responseJson = [request responseString];
+		SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+		id jsonObject = [jsonParser objectWithString:responseJson];
+		if ([jsonObject isKindOfClass:[MCSyncTestTimes class]]) {
+			newTimes = (MCSyncTestTimes *)jsonObject;
+		}
+	}
+	return [newTimes autorelease];
 }
-
 
 /**
  *	@brief Moves remote data using synchronous communication with MCM and measures times.
@@ -41,30 +64,31 @@ static int TIMES_TO_RUN = 10;
  *			1) immediately when request is received by server timer is started
  *			2) 
  */
-- (NSDictionary *)executeTest
+- (MCSyncTestTimes *)executeTest
 {
-	NSMutableDictionary *results = [[NSMutableDictionary alloc] initWithCapacity:0];
-	NSURL *servlet = [[MCAppSettings sharedSettings] urlWithServletName:@"SynchronousTestsServlet"];
+	MCSyncTestTimes *times = [[MCSyncTestTimes alloc] init];
+	
+	NSURL *servlet = [[MCAppSettings sharedSettings] urlWithServletName:MCSynchronousTestsServletName];
 	ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:servlet];
-	double totalTimeStart = CACurrentMediaTime();
+	times.clientInitialRequest = [[NSDate date] timeIntervalSince1970];
+	NSString *randomFileName = [NSString stringWithFormat:@"r-%@-", times.testID];
+	[request addData:[NSData randomDataOfSize:MCDataSize1MB] withFileName:randomFileName andContentType:@"application/octet-stream" forKey:@"data"];
+	[request addPostValue:times.testID forKey:@"testID"];
 	[request startSynchronous];
-	double totalTimeDuration = CACurrentMediaTime() - totalTimeStart;
-	
-	double taskTimeInMCM = [self getTaskTimeFromMCM];
-	
-	[results setObject:[NSNumber numberWithDouble:totalTimeDuration] forKey:@"totalTime"];
-	[results setObject:[NSNumber numberWithDouble:taskTimeInMCM] forKey:@"taskInMCM"];
-	DLog(@"Test completed. Times:\n\t total : %f\n\t in MCM: %f", totalTimeDuration, taskTimeInMCM);
-	return [results autorelease];
+	times.clientReceiveResponse = [[NSDate date] timeIntervalSince1970];
+	DLog(@"Test completed. %@", times);
+	return [times autorelease];
 }
 
 - (void)main
 {
 	NSMutableArray *results = [NSMutableArray arrayWithCapacity:0];
 	for (int i = 0; i < TIMES_TO_RUN; i++) {
-		[results addObject:[self executeTest]];
+		MCSyncTestTimes *times = [self executeTest];
+		//[self joinTimesWithTimesFromMCM:times];
+		[results addObject:times];
+		
 	}
-	DLog(@"%@", results);
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "MCAppSettings.h"
 
-static NSString *MCServerIPAddress = @"172.17.52.145";
+static NSString *MCServerIPAddress = @"172.17.1.235";
 static NSString *MCServerPort = @"8084";
 
 @implementation MCAppSettings
@@ -38,7 +38,6 @@ static NSString *MCServerPort = @"8084";
 - (NSURL *)urlWithServletName:(NSString *)servletName;
 {
 	NSString *urlString = [NSString stringWithFormat:@"http://%@:%@/%@", [self serverIP], [self serverPort], servletName, nil];
-	DLog(@"servlet is at: %@", urlString);
 	NSURL *url = [NSURL URLWithString:urlString];
 	return url;
 }

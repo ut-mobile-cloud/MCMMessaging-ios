@@ -68,6 +68,8 @@
 		257A5A1E1327B968005438D7 /* MCTimesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A5A1D1327B968005438D7 /* MCTimesController.m */; };
 		257A5A211327BB97005438D7 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 257A5A1F1327BB97005438D7 /* clock.png */; };
 		257A5A221327BB97005438D7 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 257A5A201327BB97005438D7 /* clock@2x.png */; };
+		258EB98413702B440053BD6A /* MCSyncTestTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 258EB98313702B440053BD6A /* MCSyncTestTimes.m */; };
+		258EB98813702B590053BD6A /* MCAsyncTestTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 258EB98713702B590053BD6A /* MCAsyncTestTimes.m */; };
 		25A2797413204EC600309EC2 /* MCUploadPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A2797313204EC600309EC2 /* MCUploadPictureCell.m */; };
 		25A2797713204F3200309EC2 /* MCUploadPictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A2797613204F3200309EC2 /* MCUploadPictureCell.xib */; };
 		25A2797A1320524800309EC2 /* photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 25A279781320524800309EC2 /* photo.png */; };
@@ -208,6 +210,10 @@
 		257A5A1D1327B968005438D7 /* MCTimesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTimesController.m; sourceTree = "<group>"; };
 		257A5A1F1327BB97005438D7 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		257A5A201327BB97005438D7 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		258EB98213702B440053BD6A /* MCSyncTestTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSyncTestTimes.h; sourceTree = "<group>"; };
+		258EB98313702B440053BD6A /* MCSyncTestTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSyncTestTimes.m; sourceTree = "<group>"; };
+		258EB98613702B590053BD6A /* MCAsyncTestTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAsyncTestTimes.h; sourceTree = "<group>"; };
+		258EB98713702B590053BD6A /* MCAsyncTestTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAsyncTestTimes.m; sourceTree = "<group>"; };
 		25A2797213204EC600309EC2 /* MCUploadPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUploadPictureCell.h; sourceTree = "<group>"; };
 		25A2797313204EC600309EC2 /* MCUploadPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUploadPictureCell.m; sourceTree = "<group>"; };
 		25A2797613204F3200309EC2 /* MCUploadPictureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCUploadPictureCell.xib; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 		250306EA130E7FD4003D0727 /* MCMMessaging */ = {
 			isa = PBXGroup;
 			children = (
+				25119C2E13698CEC0085077D /* Performance testing */,
 				2530B6D9131E9986008309A3 /* Additions */,
 				2530B6DB131EAC52008309A3 /* Tasks */,
 				2530B6D8131E9938008309A3 /* UI */,
@@ -367,6 +374,17 @@
 				250306F1130E7FD4003D0727 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25119C2E13698CEC0085077D /* Performance testing */ = {
+			isa = PBXGroup;
+			children = (
+				258EB98213702B440053BD6A /* MCSyncTestTimes.h */,
+				258EB98313702B440053BD6A /* MCSyncTestTimes.m */,
+				258EB98613702B590053BD6A /* MCAsyncTestTimes.h */,
+				258EB98713702B590053BD6A /* MCAsyncTestTimes.m */,
+			);
+			name = "Performance testing";
 			sourceTree = "<group>";
 		};
 		253018BB1312732600D137E6 /* Images */ = {
@@ -767,6 +785,8 @@
 				25C9FB6E1365860600F9D7D6 /* MCSynchronousTests.m in Sources */,
 				25C9FB711365861800F9D7D6 /* MCAsynchronousTests.m in Sources */,
 				25EE1BA813683C930056B694 /* MCTimeSynchronizer.m in Sources */,
+				258EB98413702B440053BD6A /* MCSyncTestTimes.m in Sources */,
+				258EB98813702B590053BD6A /* MCAsyncTestTimes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

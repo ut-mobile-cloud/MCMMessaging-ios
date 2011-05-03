@@ -10,10 +10,11 @@
 
 
 @interface MCTimeSynchronizer : NSObject {
-    
+	NSMutableArray *timeStamps;
 }
 
 + (MCTimeSynchronizer *)sharedSynchronizer;
 - (void)startSyncingWithMCM;
+- (double)calculateSyncDifference;
 
 @end

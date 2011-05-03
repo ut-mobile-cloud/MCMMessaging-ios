@@ -20,7 +20,7 @@
 /*
  * When running tasks, task runner will check following things
  *	1) if there is a serverTaskClass property specifie (!=nil) -- if YES, it will try to run the task in server
- *	2) if there is no serverTaskClass property it will check for main selector -- if YES, will put the selected task to OperationQueue for running
+ *	2) if there is no serverTaskClass property it will check for main selector -- if YES, will put the selected task to OperationQueue for running. This means that the task is expected to have all functionality to run itself.
  *	3) report error
  */
 + (void)runTask:(MCTask *)task

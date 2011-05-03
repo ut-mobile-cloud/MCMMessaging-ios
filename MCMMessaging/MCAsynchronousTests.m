@@ -9,6 +9,8 @@
 #import "MCAsynchronousTests.h"
 #import "MCTimeSynchronizer.h"
 
+static NSString *MCAsynchronousTestsServletName = @"AsyncTestsServlet";
+
 @implementation MCAsynchronousTests
 
 - (NSString *)description
@@ -40,7 +42,7 @@
 - (void)main
 {
 	[[MCTimeSynchronizer sharedSynchronizer] startSyncingWithMCM];
-	DLog(@"I'm running i'm running...");
+	DLog(@"I'm running i'm running... : Time difference is : %f", [[MCTimeSynchronizer sharedSynchronizer] calculateSyncDifference]);
 }
 
 @end
