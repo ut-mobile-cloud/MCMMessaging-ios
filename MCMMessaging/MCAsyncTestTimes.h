@@ -33,4 +33,6 @@
 @property (nonatomic, assign) double serverSendPushNotification;
 @property (nonatomic, assign) double clientReceivePushNotification;
 
+- (NSString *)JSONRepresentation;
+
 @end

@@ -10,7 +10,9 @@
 #import "MCTask.h"
 
 @interface MCAsynchronousTests : MCTask {
-    
+	NSMutableDictionary *testTimes;
 }
+
+@property (retain) NSMutableDictionary *testTimes;
 
 @end

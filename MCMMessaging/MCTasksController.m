@@ -28,7 +28,7 @@
 					cellData:[MCSynchronousTests new]
 			   withAnimation:UITableViewRowAnimationLeft];
 	[self appendRowToSection:0 cellClass:[MCTaskCell class] 
-					cellData:[MCAsynchronousTests new]
+					cellData:[[MCAsynchronousTests alloc] init]
 			   withAnimation:UITableViewRowAnimationLeft];
 
 	
@@ -80,8 +80,9 @@
 
 - (void)loadView
 {
-	GradientBackgroundTable *aTableView = [[[GradientBackgroundTable alloc] initWithFrame:CGRectZero 
-																				   style:UITableViewStyleGrouped] autorelease];
+	GradientBackgroundTable *aTableView = [[[GradientBackgroundTable alloc] 
+											initWithFrame:CGRectZero 									   
+											style:UITableViewStyleGrouped] autorelease];
 	self.view = aTableView;
 	self.tableView = aTableView;
 }

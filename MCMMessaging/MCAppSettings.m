@@ -8,7 +8,7 @@
 
 #import "MCAppSettings.h"
 
-static NSString *MCServerIPAddress = @"172.17.1.235";
+static NSString *MCServerIPAddress = @"192.168.1.70";
 static NSString *MCServerPort = @"8084";
 
 @implementation MCAppSettings

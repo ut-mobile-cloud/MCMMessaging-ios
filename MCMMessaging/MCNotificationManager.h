@@ -10,6 +10,7 @@
 
 extern NSString *MCReceivedNotificationIdentifier;
 extern NSString *MCReceivedResultsNotification;
+extern NSString *MCAsyncTestResultNotification;
 
 @interface MCNotificationManager : NSObject {
 	NSArray *notifications;

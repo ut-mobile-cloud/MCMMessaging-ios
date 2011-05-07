@@ -41,15 +41,13 @@ static int MCDataSize1MB = 1048576;
 	[request addPostValue:times.testID forKey:@"testID"];
 	[request addPostValue:[times JSONRepresentation] forKey:@"clientTimes"];
 	[request startSynchronous];
-	MCSyncTestTimes *newTimes = nil;
+	MCSyncTestTimes *newTimes = [[MCSyncTestTimes alloc] init];
 	NSError *error = [request error];
 	if (!error && [request responseStatusCode] == 200) {
 		NSString *responseJson = [request responseString];
 		SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
-		id jsonObject = [jsonParser objectWithString:responseJson];
-		if ([jsonObject isKindOfClass:[MCSyncTestTimes class]]) {
-			newTimes = (MCSyncTestTimes *)jsonObject;
-		}
+		id jsonObject = [jsonParser objectWithString:responseJson];		
+		[newTimes setValuesForKeysWithDictionary:jsonObject];
 	}
 	return [newTimes autorelease];
 }
@@ -85,7 +83,7 @@ static int MCDataSize1MB = 1048576;
 	NSMutableArray *results = [NSMutableArray arrayWithCapacity:0];
 	for (int i = 0; i < TIMES_TO_RUN; i++) {
 		MCSyncTestTimes *times = [self executeTest];
-		//[self joinTimesWithTimesFromMCM:times];
+		[self joinTimesWithTimesFromMCM:times];
 		[results addObject:times];
 		
 	}

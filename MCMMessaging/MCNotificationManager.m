@@ -17,6 +17,7 @@
 
 NSString *MCReceivedNotificationIdentifier = @"MCReceivedNotificationIdentifier";
 NSString *MCReceivedResultsNotification = @"MCReceivedResultsNotification";
+NSString *MCAsyncTestResultNotification = @"MCAsyncTestResultNotification";
 //static NSString *MCProviderRegistrationURLMask = @"http://localhost:8084/RegisterForNotifications?deviceID=%@&deviceType=iphone";
 //static NSString *MCUserDefaultsDeviceTokenKey = @"MCUserDefaultsDeviceTokenKey";
 
@@ -87,6 +88,10 @@ NSString *MCReceivedResultsNotification = @"MCReceivedResultsNotification";
 	 */
 }
 
+- (void)notifyAsyncTestResult:(NSString *)testID
+{
+	[[NSNotificationCenter defaultCenter] postNotificationName:MCAsyncTestResultNotification object:nil userInfo:[NSDictionary dictionaryWithObject:testID forKey:@"testID"]];
+}
 /**
  	Will be called when server finishes requested job
  	Response payload will contain NSDictionary with following form:
@@ -104,29 +109,35 @@ NSString *MCReceivedResultsNotification = @"MCReceivedResultsNotification";
 - (void)receivedNotificationWithUserInfo: (NSDictionary *)userInfo
 {
 	NSString *taskID = [userInfo objectForKey:@"taskID"];
-	DLog(@"Received a notification : taskID == %@", taskID);
-	NSURL *resultsURL = [[MCAppSettings sharedSettings] urlWithServletName:@"RequestResults"];
-	ASIFormDataRequest *resultsRequest = [ASIFormDataRequest requestWithURL:resultsURL];
-	[resultsRequest addPostValue:taskID forKey:@"taskID"];
-	
-	float startResultsRequest = CACurrentMediaTime();
-	[resultsRequest startSynchronous];
-	float requestDuration = CACurrentMediaTime() - startResultsRequest;
-	
-	MCTaskTimes *durationForTask = [[MCTaskTimes alloc] initWithTaskID:taskID];
-	durationForTask.results = requestDuration;
-	
-	[MCTaskTimes sendTimesToServer:durationForTask];
-	NSError *error = [resultsRequest error];
-	NSString *newResult = nil;
-	if(!error) {
-		newResult = [resultsRequest responseString];
-		[results addObject:newResult];
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObject:newResult forKey:@"newResult"];
-		[[NSNotificationCenter defaultCenter] postNotificationName:MCReceivedResultsNotification object:self userInfo:userInfo];
+	NSString *resultType = [userInfo objectForKey:@"resultType"];
+	if ([resultType isEqual:@"AsyncTestResult"]) {
+		[self notifyAsyncTestResult:[userInfo objectForKey:@"testID"]];
 	} else {
-		DLog(@"error : %@", error);
+		DLog(@"Received a notification : taskID == %@", taskID);
+		NSURL *resultsURL = [[MCAppSettings sharedSettings] urlWithServletName:@"RequestResults"];
+		ASIFormDataRequest *resultsRequest = [ASIFormDataRequest requestWithURL:resultsURL];
+		[resultsRequest addPostValue:taskID forKey:@"taskID"];
+		
+		float startResultsRequest = CACurrentMediaTime();
+		[resultsRequest startSynchronous];
+		float requestDuration = CACurrentMediaTime() - startResultsRequest;
+		
+		MCTaskTimes *durationForTask = [[MCTaskTimes alloc] initWithTaskID:taskID];
+		durationForTask.results = requestDuration;
+		
+		[MCTaskTimes sendTimesToServer:durationForTask];
+		NSError *error = [resultsRequest error];
+		NSString *newResult = nil;
+		if(!error) {
+			newResult = [resultsRequest responseString];
+			[results addObject:newResult];
+			NSDictionary *userInfo = [NSDictionary dictionaryWithObject:newResult forKey:@"newResult"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:MCReceivedResultsNotification object:self userInfo:userInfo];
+		} else {
+			DLog(@"error : %@", error);
+		}
 	}
+	
 }
 
 - (void)failedToRegisterForNotificationsWithError:(NSError *)error
