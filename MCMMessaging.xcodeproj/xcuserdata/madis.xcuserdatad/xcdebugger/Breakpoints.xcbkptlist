@@ -22,20 +22,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "MCMMessaging/MCTaskRunner.m"
-         timestampString = "321812281.717663"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
-         landmarkName = "+runTask:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "MCMMessaging/MCTaskTimes.m"
          timestampString = "321812615.71369"
          startingColumnNumber = "9223372036854775807"
@@ -43,6 +29,34 @@
          startingLineNumber = "53"
          endingLineNumber = "53"
          landmarkName = "-initWithTaskID:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "MCMMessaging/MCAsynchronousTests.m"
+         timestampString = "326407087.757892"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
+         landmarkName = "-syncTimesWithServerForTaskID:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "MCMMessaging/MCSynchronousTests.m"
+         timestampString = "326397438.083073"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "-joinTimesWithTimesFromMCM:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
